@@ -4,14 +4,47 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c1335df-28d8-40f6-947e-36c41f037d3d" name="Changes" comment="" />
+    <list default="true" id="3c1335df-28d8-40f6-947e-36c41f037d3d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/branchController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/courseController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/curatorController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/forWhomCourseController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/lessonController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/willLearnController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Error/ApiError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Middleware/ErrorHandlingMiddleware.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/models.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/branchRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/courseRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/curatorRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/eventRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/eventTypeRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/forWhomCourseRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/forWhomEventRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/lessonRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/themeRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/willLearnRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/97f0c91e-620f-41f5-9d8c-7c36b00b2b9a.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="ProjectId" id="2RvyRPUQAPyzEpoL6qdKqG1FbTn" />
   <component name="ProjectLevelVcsManager">
@@ -21,24 +54,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.15.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.15.0&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kotyarya/Documents/Programowanie/GitHub/CreateX-SERVER&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;0d570cb2-96df-43cc-80da-7f777e6d0afe&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "javascript.nodejs.core.library.configured.version": "18.15.0",
+    "javascript.nodejs.core.library.typings.version": "18.15.0",
+    "last_opened_file_path": "/Users/kotyarya/Documents/Programowanie/GitHub/CreateX-SERVER",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "actions.on.save",
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -53,6 +92,7 @@
       <workItem from="1688227022536" duration="5294000" />
       <workItem from="1688337016847" duration="6066000" />
       <workItem from="1688388671770" duration="66000" />
+      <workItem from="1688388856317" duration="33931000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
