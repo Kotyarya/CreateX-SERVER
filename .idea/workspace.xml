@@ -4,34 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c1335df-28d8-40f6-947e-36c41f037d3d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/branchController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/courseController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/curatorController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/forWhomCourseController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/lessonController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/willLearnController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Error/ApiError.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Middleware/ErrorHandlingMiddleware.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/models.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/branchRouter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/courseRouter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/curatorRouter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/eventRouter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/eventTypeRouter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/forWhomCourseRouter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/forWhomEventRouter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/lessonRouter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/themeRouter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/willLearnRouter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/97f0c91e-620f-41f5-9d8c-7c36b00b2b9a.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="3c1335df-28d8-40f6-947e-36c41f037d3d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,7 +65,7 @@
       <workItem from="1688227022536" duration="5294000" />
       <workItem from="1688337016847" duration="6066000" />
       <workItem from="1688388671770" duration="66000" />
-      <workItem from="1688388856317" duration="33931000" />
+      <workItem from="1688388856317" duration="33956000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -126,7 +99,15 @@
       <option name="project" value="LOCAL" />
       <updated>1688343222630</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="commit">
+      <option name="closed" value="true" />
+      <created>1688503821577</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1688503821577</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
