@@ -1,5 +1,5 @@
 const ApiError = require("../Error/ApiError");
-const {Course} = require("../models/models");
+const {Course, Branch} = require("../models/models");
 
 class CourseController {
     async create(req, res, next) {
@@ -18,7 +18,7 @@ class CourseController {
 
     async getOneById(req, res) {
         const {id} = req.params
-        const course = await Course.findOne({where: {id},})
+        const course = await Course.findOne({where: {id}})
         return res.status(200).json(course)
     }
 
@@ -29,7 +29,7 @@ class CourseController {
         const offset = page * 9 - 9
 
         if (!branchId || branchId === "0") {
-            let courses = await Course.findAll({limit, offset})
+            let courses = await Course.findAll({limit, offset, include: [{model: Branch, as: "branch"}]})
             return res.status(200).json(courses)
         }
 
