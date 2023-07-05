@@ -28,7 +28,7 @@ class CuratorController {
 
     async getAll(req, res, next) {
 
-        const curators = await Curator.findAndCountAll()
+        const curators = await Curator.findAll()
 
         return res.status(200).json(curators)
     }
