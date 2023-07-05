@@ -1,5 +1,6 @@
 const ApiError = require("../Error/ApiError");
-const {Course, Branch} = require("../models/models");
+const {Course, Branch, Curator} = require("../models/models");
+const {Sequelize} = require("sequelize");
 
 class CourseController {
     async create(req, res, next) {
@@ -29,7 +30,16 @@ class CourseController {
         const offset = page * 9 - 9
 
         if (!branchId || branchId === "0") {
-            let courses = await Course.findAll({limit, offset, include: [{model: Branch, as: "branch"}]})
+            let courses = await Course.findAll(
+                {
+                    limit, offset,
+                    include: [{model: Branch, as: "branch", attributes: ["name"]}, {
+                        model: Curator,
+                        as: "curator",
+                        attributes: ["img", "name"]
+                    }],
+                }
+            )
             return res.status(200).json(courses)
         }
 
