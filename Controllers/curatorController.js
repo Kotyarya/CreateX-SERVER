@@ -27,8 +27,15 @@ class CuratorController {
     }
 
     async getAll(req, res, next) {
+        const {limit} = req.query
 
-        const curators = await Curator.findAll()
+        if (!limit) {
+            const curators = await Curator.findAll()
+
+            return res.status(200).json(curators)
+        }
+
+        const curators = await Curator.findAll({limit})
 
         return res.status(200).json(curators)
     }
