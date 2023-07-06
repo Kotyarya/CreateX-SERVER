@@ -17,7 +17,7 @@ class BranchController {
     async getAll(req, res) {
 
 
-        const branches = await Branch.findAndCountAll({
+        const branches = await Branch.findAll({
             attributes: {
                 include: [[Sequelize.fn("COUNT", Sequelize.col("courses.branchId")), "courseCount"]]
             },

@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3c1335df-28d8-40f6-947e-36c41f037d3d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/branchController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/branchController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/curatorController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/curatorController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/curatorRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/curatorRouter.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +20,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
@@ -87,7 +93,8 @@
       <workItem from="1688388856317" duration="33956000" />
       <workItem from="1688508674705" duration="1886000" />
       <workItem from="1688513629686" duration="3974000" />
-      <workItem from="1688555144092" duration="1644000" />
+      <workItem from="1688555144092" duration="5701000" />
+      <workItem from="1688654703237" duration="13000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -185,7 +192,15 @@
       <option name="project" value="LOCAL" />
       <updated>1688555912142</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="commit">
+      <option name="closed" value="true" />
+      <created>1688557235255</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1688557235255</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

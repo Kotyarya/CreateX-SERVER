@@ -54,6 +54,21 @@ class CuratorController {
         return res.status(200).json(curator)
 
     }
+
+    async update(req, res, next) {
+        const {id} = req.params
+        const {text} = req.body
+
+        const curator = await Curator.update({"description": text}, {
+            where: {
+                id
+            }
+        })
+
+        return res.status(200).json(curator)
+
+
+    }
 }
 
 module.exports = new CuratorController()
