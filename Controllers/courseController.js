@@ -43,7 +43,17 @@ class CourseController {
             return res.status(200).json(courses)
         }
 
-        let courses = await Course.findAll({where: {branchId}, limit, offset})
+        let courses = await Course.findAll((
+            {
+                limit, offset,
+                include: [{model: Branch, as: "branch", attributes: ["name"]}, {
+                    model: Curator,
+                    as: "curator",
+                    attributes: ["img", "name"]
+                }],
+                where: {branchId}
+            }
+        ))
 
         return res.status(200).json(courses)
     }
