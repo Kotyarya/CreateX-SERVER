@@ -76,7 +76,7 @@ Lesson.belongsTo(Course)
 Course.hasMany(ForWhomCourse)
 ForWhomCourse.belongsTo(Course)
 
-Course.hasMany(WillLearn)
+Course.hasMany(WillLearn, {as: "willLearn", foreignKey: "courseId"})
 WillLearn.belongsTo(Course)
 
 

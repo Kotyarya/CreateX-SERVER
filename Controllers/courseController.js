@@ -1,5 +1,5 @@
 const ApiError = require("../Error/ApiError");
-const {Course, Branch, Curator} = require("../models/models");
+const {Course, Branch, Curator, WillLearn, Lesson} = require("../models/models");
 const {Sequelize} = require("sequelize");
 
 class CourseController {
@@ -19,7 +19,33 @@ class CourseController {
 
     async getOneById(req, res) {
         const {id} = req.params
-        const course = await Course.findOne({where: {id}})
+        const course = await Course.findOne(
+            {
+                where: {id},
+                include: [
+                    {
+                        model: Branch,
+                        as: "branch",
+                        attributes: ["name"]
+                    },
+                    {
+                        model: Curator,
+                        as: "curator",
+                        attributes: ["img", "name"]
+                    },
+                    {
+                        model: WillLearn,
+                        as: "willLearn",
+                        attributes: ["text"],
+                    },
+                    {
+                        model: Lesson,
+                        as: "lessons",
+                        attributes: ["title", "description"]
+                    }
+                ],
+            }
+        )
         return res.status(200).json(course)
     }
 
@@ -73,3 +99,5 @@ class CourseController {
 }
 
 module.exports = new CourseController()
+
+// willLearn is associated to course using an alias. You've included an alias (willLearn), but it does not match the alias(es) defined in your association (willLearns).

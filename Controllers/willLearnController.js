@@ -14,7 +14,7 @@ class WillLearnController {
     }
 
     async getAll(req, res) {
-        const willLearn = await WillLearn.findAndCountAll()
+        const willLearn = await WillLearn.findAll()
 
         return res.status(200).json(willLearn)
     }
@@ -27,7 +27,7 @@ class WillLearnController {
             return next(ApiError.badRequest("ID is not valid"))
         }
 
-        const willLearn = await WillLearn.findAndCountAll({where: {courseId: id}})
+        const willLearn = await WillLearn.findAll({where: {courseId: id}})
         return res.status(200).json(willLearn)
     }
 
