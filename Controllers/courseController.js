@@ -30,9 +30,9 @@ class CourseController {
         const offset = page * 9 - 9
 
         if (!branchId || branchId === "0") {
-            let courses = await Course.findAll(
+            let courses = await Course.findAndCountAll(
                 {
-                    limit, offset,
+                    limit, offset, subQuery: false, order: [["id", "ASC"]],
                     include: [{model: Branch, as: "branch", attributes: ["name"]}, {
                         model: Curator,
                         as: "curator",
@@ -45,7 +45,7 @@ class CourseController {
 
         let courses = await Course.findAll((
             {
-                limit, offset,
+                limit, offset, subQuery: false, order: [["id", "ASC"]],
                 include: [{model: Branch, as: "branch", attributes: ["name"]}, {
                     model: Curator,
                     as: "curator",
