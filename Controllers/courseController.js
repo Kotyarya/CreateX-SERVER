@@ -32,7 +32,6 @@ class CourseController {
         if (!branchId || branchId === "0") {
             let courses = await Course.findAll(
                 {
-                    limit, offset,
                     include: [{model: Branch, as: "branch", attributes: ["name"]}, {
                         model: Curator,
                         as: "curator",
@@ -45,7 +44,6 @@ class CourseController {
 
         let courses = await Course.findAll((
             {
-                limit, offset,
                 include: [{model: Branch, as: "branch", attributes: ["name"]}, {
                     model: Curator,
                     as: "curator",
