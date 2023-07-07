@@ -31,7 +31,6 @@ class CourseController {
                     {
                         model: Curator,
                         as: "curator",
-                        attributes: ["img", "name"]
                     },
                     {
                         model: WillLearn,
@@ -62,7 +61,6 @@ class CourseController {
                     include: [{model: Branch, as: "branch", attributes: ["name"]}, {
                         model: Curator,
                         as: "curator",
-                        attributes: ["img", "name"]
                     }],
                 }
             )
@@ -75,7 +73,6 @@ class CourseController {
                 include: [{model: Branch, as: "branch", attributes: ["name"]}, {
                     model: Curator,
                     as: "curator",
-                    attributes: ["img", "name"]
                 }],
                 where: {branchId}
             }
