@@ -35,7 +35,7 @@ const Event = sequelize.define("event", {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     title: {type: DataTypes.STRING, unique: true},
     month: {type: DataTypes.STRING},
-    day: {type: DataTypes.STRING},
+    day: {type: DataTypes.INTEGER},
     time: {type: DataTypes.STRING}
 })
 
