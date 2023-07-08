@@ -73,7 +73,7 @@ Course.belongsTo(Branch)
 Course.hasMany(Lesson)
 Lesson.belongsTo(Course)
 
-Course.hasMany(ForWhomCourse)
+Course.hasMany(ForWhomCourse, {as: "forWhom", foreignKey: "courseId"})
 ForWhomCourse.belongsTo(Course)
 
 Course.hasMany(WillLearn, {as: "willLearn", foreignKey: "courseId"})

@@ -1,5 +1,5 @@
 const ApiError = require("../Error/ApiError");
-const {Course, Branch, Curator, WillLearn, Lesson} = require("../models/models");
+const {Course, Branch, Curator, WillLearn, Lesson, ForWhomCourse} = require("../models/models");
 const {Sequelize} = require("sequelize");
 
 class CourseController {
@@ -41,6 +41,11 @@ class CourseController {
                         model: Lesson,
                         as: "lessons",
                         attributes: ["title", "description"]
+                    },
+                    {
+                        model: ForWhomCourse,
+                        as: "forWhom",
+                        attributes: ["text"]
                     }
                 ],
             }
