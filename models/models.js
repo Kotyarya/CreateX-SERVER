@@ -83,7 +83,7 @@ WillLearn.belongsTo(Course)
 EventType.hasMany(Event)
 Event.belongsTo(EventType)
 
-Event.hasMany(Theme)
+Event.hasMany(Theme, {as: "theme", foreignKey: "eventId"})
 Theme.belongsTo(Event)
 
 Event.hasMany(ForWhomEvent)

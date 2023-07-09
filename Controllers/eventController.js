@@ -1,5 +1,5 @@
 const ApiError = require('../Error/ApiError')
-const {Event} = require("../models/models");
+const {Event, EventType, Theme} = require("../models/models");
 
 class EventController {
     async create(req, res, next) {
@@ -16,7 +16,14 @@ class EventController {
 
 
     async getAll(req, res) {
-        const events = await Event.findAll()
+        const events = await Event.findAll(
+            {
+                include: [
+                    {model: EventType, as: "eventType", attributes: ["name"]},
+                    {model: Theme, as: "theme"}
+                ],
+            }
+        )
         return res.status(200).json(events)
     }
 }
