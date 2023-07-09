@@ -36,7 +36,8 @@ const Event = sequelize.define("event", {
     title: {type: DataTypes.STRING, unique: true},
     month: {type: DataTypes.STRING},
     day: {type: DataTypes.INTEGER},
-    time: {type: DataTypes.STRING}
+    time: {type: DataTypes.STRING},
+    date: {type: DataTypes.DATEONLY}
 })
 
 const EventType = sequelize.define("eventType", {
@@ -54,7 +55,6 @@ const ForWhomEvent = sequelize.define("forWhomEvent", {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     text: {type: DataTypes.STRING},
 })
-
 
 const Curator = sequelize.define("curator", {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},

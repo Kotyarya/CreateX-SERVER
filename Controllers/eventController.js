@@ -27,7 +27,7 @@ class EventController {
         if (!eventTypeId || eventTypeId === "0") {
             const events = await Event.findAndCountAll(
                 {
-                    limit, offset, order: [["id", "ASC"]],
+                    limit, offset, order: [["date", "ASC"]],
                     include: [
                         {model: EventType, as: "eventType", attributes: ["name"]},
                         {model: Theme, as: "theme"}
@@ -53,6 +53,17 @@ class EventController {
             }
         )
         return res.status(200).json(events)
+    }
+
+    async update(req, res) {
+        const {id} = req.params
+        const {date} = req.body
+
+
+        const event = await Event.update({"date": date}, {where: {id}})
+        const eventUpdate = await Event.findOne({where: {id}})
+
+        return res.status(200).json(eventUpdate)
     }
 }
 
