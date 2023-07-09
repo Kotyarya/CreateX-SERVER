@@ -14,7 +14,6 @@ class EventController {
         return res.status(200).json(event)
     }
 
-
     async getAll(req, res) {
 
         let {limit, page, eventTypeId} = req.query
@@ -25,7 +24,7 @@ class EventController {
         const offset = limit * page - limit
 
 
-        if (!eventTypeId) {
+        if (!eventTypeId || eventTypeId === "0") {
             const events = await Event.findAndCountAll(
                 {
                     limit, offset, order: [["id", "ASC"]],
