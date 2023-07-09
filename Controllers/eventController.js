@@ -16,12 +16,41 @@ class EventController {
 
 
     async getAll(req, res) {
-        const events = await Event.findAll(
+
+        let {limit, page, eventTypeId} = req.query
+
+        limit = limit || 9
+        page = page || 1
+
+        const offset = limit * page - limit
+
+
+        if (!eventTypeId) {
+            const events = await Event.findAndCountAll(
+                {
+                    limit, offset, order: [["id", "ASC"]],
+                    include: [
+                        {model: EventType, as: "eventType", attributes: ["name"]},
+                        {model: Theme, as: "theme"}
+                    ],
+                    distinct: true
+                }
+            )
+
+            return res.status(200).json(events)
+        }
+
+
+        const events = await Event.findAndCountAll(
             {
+                limit, offset, order: [["id", "ASC"]],
+                where: {eventTypeId},
                 include: [
                     {model: EventType, as: "eventType", attributes: ["name"]},
                     {model: Theme, as: "theme"}
                 ],
+                distinct: true
+
             }
         )
         return res.status(200).json(events)
