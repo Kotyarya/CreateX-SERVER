@@ -2,6 +2,7 @@ const ApiError = require('../Error/ApiError')
 const {Event, EventType, Theme} = require("../models/models");
 const dateFns = require('date-fns')
 const Sequelize = require('sequelize')
+const {Op} = require("sequelize");
 
 class EventController {
     async create(req, res, next) {
@@ -18,7 +19,8 @@ class EventController {
 
     async getAll(req, res) {
 
-        let {limit, page, eventTypeId, sortBy} = req.query
+        let {limit, page, eventTypeId, sortBy, text} = req.query
+        text = text || ""
 
         limit = limit || 9
         page = page || 1
@@ -29,6 +31,11 @@ class EventController {
         if (!eventTypeId || eventTypeId === "0") {
             const events = await Event.findAndCountAll(
                 {
+                    where: {
+                        "title": {
+                            [Op.like]: '%' + text + '%'
+                        }
+                    },
                     limit, offset, order: [["date", "ASC"]],
                     include: [
                         {model: EventType, as: "eventType", attributes: ["name"]},
@@ -45,7 +52,12 @@ class EventController {
         const events = await Event.findAndCountAll(
             {
                 limit, offset, order: [["id", "ASC"]],
-                where: {eventTypeId},
+                where: {
+                    eventTypeId,
+                    "title": {
+                        [Op.like]: '%' + text + '%'
+                    }
+                },
                 include: [
                     {model: EventType, as: "eventType", attributes: ["name"]},
                     {model: Theme, as: "theme"}
