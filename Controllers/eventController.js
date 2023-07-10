@@ -1,5 +1,7 @@
 const ApiError = require('../Error/ApiError')
 const {Event, EventType, Theme} = require("../models/models");
+const dateFns = require('date-fns')
+const Sequelize = require('sequelize')
 
 class EventController {
     async create(req, res, next) {
@@ -16,7 +18,7 @@ class EventController {
 
     async getAll(req, res) {
 
-        let {limit, page, eventTypeId} = req.query
+        let {limit, page, eventTypeId, sortBy} = req.query
 
         limit = limit || 9
         page = page || 1
@@ -32,7 +34,7 @@ class EventController {
                         {model: EventType, as: "eventType", attributes: ["name"]},
                         {model: Theme, as: "theme"}
                     ],
-                    distinct: true
+                    distinct: true,
                 }
             )
 
