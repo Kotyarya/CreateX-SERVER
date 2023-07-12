@@ -1,5 +1,5 @@
 const ApiError = require('../Error/ApiError')
-const {Event, EventType, Theme} = require("../models/models");
+const {Event, EventType, Theme, Curator} = require("../models/models");
 const dateFns = require('date-fns')
 const Sequelize = require('sequelize')
 const {Op} = require("sequelize");
@@ -74,7 +74,8 @@ class EventController {
         const event = await Event.findOne({
             where: {id}, include: [
                 {model: EventType, as: "eventType", attributes: ["name"]},
-                {model: Theme, as: "theme"}
+                {model: Theme, as: "theme"},
+                {model: Curator, as: "curator"}
             ],
         })
         return res.status(200).json(event)
