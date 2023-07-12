@@ -63,7 +63,6 @@ class EventController {
                     {model: Theme, as: "theme"}
                 ],
                 distinct: true
-
             }
         )
         return res.status(200).json(events)
@@ -72,7 +71,12 @@ class EventController {
     async getOne(req, res) {
         const {id} = req.params
 
-        const event = await Event.findOne({where: {id}})
+        const event = await Event.findOne({
+            where: {id}, include: [
+                {model: EventType, as: "eventType", attributes: ["name"]},
+                {model: Theme, as: "theme"}
+            ],
+        })
         return res.status(200).json(event)
     }
 
