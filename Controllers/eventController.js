@@ -69,6 +69,13 @@ class EventController {
         return res.status(200).json(events)
     }
 
+    async getOne(req, res) {
+        const {id} = req.params
+
+        const event = await Event.findOne({where: {id}})
+        return res.status(200).json(event)
+    }
+
     async update(req, res) {
         const {id} = req.params
         const {date} = req.body
