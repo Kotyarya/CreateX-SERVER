@@ -40,6 +40,14 @@ class CuratorController {
         return res.status(200).json(curators)
     }
 
+    async getOne(req, res, next) {
+        const {id} = req.params
+
+        const curator = await Curator.findOne({where: {id}})
+
+        return res.status(200).json(curator)
+    }
+
 
     async delete(req, res, next) {
 
