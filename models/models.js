@@ -86,7 +86,7 @@ Event.belongsTo(EventType)
 Event.hasMany(Theme, {as: "theme", foreignKey: "eventId"})
 Theme.belongsTo(Event)
 
-Event.hasMany(ForWhomEvent)
+Event.hasMany(ForWhomEvent, {as: "forWhom", foreignKey: "eventId"})
 ForWhomEvent.belongsTo(Event)
 
 Curator.hasMany(Event)
