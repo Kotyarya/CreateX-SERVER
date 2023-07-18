@@ -5,9 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c1335df-28d8-40f6-947e-36c41f037d3d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Controllers/articleElementController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/blogController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/blogTypeController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/podcastElementController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/videoElementController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/articleElementRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/blogRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/blogTypeRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/podcastElementRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/videoElementRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/eventController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/eventController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/curatorController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/curatorController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/models.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/models.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +113,8 @@
       <workItem from="1688893555522" duration="9981000" />
       <workItem from="1689181364575" duration="2447000" />
       <workItem from="1689246475868" duration="802000" />
-      <workItem from="1689331726930" duration="133000" />
+      <workItem from="1689331726930" duration="1404000" />
+      <workItem from="1689510916956" duration="24751000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -376,7 +388,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689246561236</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="commit">
+      <option name="closed" value="true" />
+      <created>1689331903599</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1689331903599</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

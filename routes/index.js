@@ -10,6 +10,11 @@ const forWhomEventRouter = require('./forWhomEventRouter')
 const lessonRouter = require('./lessonRouter')
 const themeRouter = require('./themeRouter')
 const willLearnRouter = require('./willLearnRouter')
+const blogRouter = require('./blogRouter')
+const blogTypeRouter = require('./blogTypeRouter')
+const articleElementRouter = require('./articleElementRouter')
+const videoElementRouter = require('./videoElementRouter')
+const podcastElementRouter = require("./podcastElementRouter")
 
 
 router.use("/course", courseRouter)
@@ -22,6 +27,11 @@ router.use("/forWhomEvent", forWhomEventRouter)
 router.use("/lesson", lessonRouter)
 router.use("/theme", themeRouter)
 router.use("/willLearn", willLearnRouter)
+router.use("/blog", blogRouter)
+router.use("/blogType", blogTypeRouter)
+router.use("/articleElement", articleElementRouter)
+router.use("/videoElement", videoElementRouter)
+router.use("/podcastElement", podcastElementRouter)
 
 
 module.exports = router

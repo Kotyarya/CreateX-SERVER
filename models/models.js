@@ -66,6 +66,65 @@ const Curator = sequelize.define("curator", {
     img: {type: DataTypes.STRING}
 })
 
+const Blog = sequelize.define("blog", {
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    title: {type: DataTypes.TEXT, unique: true},
+    month: {type: DataTypes.STRING},
+    day: {type: DataTypes.INTEGER},
+    img: {type: DataTypes.STRING},
+    mainText: {type: DataTypes.TEXT},
+    firstText: {type: DataTypes.TEXT},
+    secondText: {type: DataTypes.TEXT},
+    summary: {type: DataTypes.TEXT}
+})
+
+const BlogType = sequelize.define("blogType", {
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    name: {type: DataTypes.STRING}
+})
+
+const ArticleElementList = sequelize.define("articleElementList", {
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    text: {type: DataTypes.TEXT},
+})
+
+const ArticleElement = sequelize.define("articleElement", {
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    article: {type: DataTypes.TEXT},
+    text: {type: DataTypes.TEXT},
+})
+
+const VideoElement = sequelize.define("videoElement", {
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    url: {type: DataTypes.STRING},
+})
+
+const PodcastElement = sequelize.define("podcastElement", {
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    audio: {type: DataTypes.STRING}
+})
+
+
+Curator.hasMany(Blog)
+Blog.belongsTo(Curator)
+
+Branch.hasMany(Blog)
+Blog.belongsTo(Branch)
+
+ArticleElement.hasMany(ArticleElementList)
+ArticleElementList.belongsTo(ArticleElement)
+
+BlogType.hasMany(Blog)
+Blog.belongsTo(BlogType)
+
+Blog.hasMany(ArticleElement, {as: "articleElement", foreignKey: "blogId"})
+ArticleElement.belongsTo(Blog)
+
+Blog.hasMany(VideoElement, {as: "videoElement", foreignKey: "blogId"})
+VideoElement.belongsTo(Blog)
+
+Blog.hasMany(PodcastElement, {as: "podcastElement", foreignKey: "blogId"})
+PodcastElement.belongsTo(Blog)
 
 Branch.hasMany(Course)
 Course.belongsTo(Branch)
@@ -78,7 +137,6 @@ ForWhomCourse.belongsTo(Course)
 
 Course.hasMany(WillLearn, {as: "willLearn", foreignKey: "courseId"})
 WillLearn.belongsTo(Course)
-
 
 EventType.hasMany(Event)
 Event.belongsTo(EventType)
@@ -106,5 +164,11 @@ module.exports = {
     Lesson,
     Course,
     Branch,
-    Curator
+    Curator,
+    Blog,
+    BlogType,
+    ArticleElementList,
+    ArticleElement,
+    VideoElement,
+    PodcastElement
 }

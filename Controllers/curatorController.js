@@ -14,7 +14,7 @@ class CuratorController {
             }
 
             let fileName = uuid.v4() + ".png"
-            img.mv(path.resolve(__dirname, "..", "static", fileName))
+            await img.mv(path.resolve(__dirname, "..", "static", fileName))
 
             const curator = await Curator.create({name, jobTitle, rate, description, students, img: fileName})
 
