@@ -1,6 +1,6 @@
 const uuid = require("uuid");
 const path = require("path");
-const {PodcastElement} = require("../models/models");
+const {PodcastElement, VideoElement} = require("../models/models");
 
 class PodcastElementController {
 
@@ -24,6 +24,18 @@ class PodcastElementController {
     async delete(req, res) {
         const {id} = req.params
         const podcastElement = await PodcastElement.destroy({where: {id}})
+
+        return res.status(200).json(podcastElement)
+    }
+
+    async update(req, res) {
+        const {id} = req.params
+        const {time} = req.body
+
+        const podcastElement = await PodcastElement.upsert({
+            id: id,
+            time: time
+        })
 
         return res.status(200).json(podcastElement)
     }

@@ -97,11 +97,18 @@ const ArticleElement = sequelize.define("articleElement", {
 const VideoElement = sequelize.define("videoElement", {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     url: {type: DataTypes.STRING},
+    time: {type: DataTypes.INTEGER}
 })
 
 const PodcastElement = sequelize.define("podcastElement", {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-    audio: {type: DataTypes.STRING}
+    audio: {type: DataTypes.STRING},
+    time: {type: DataTypes.INTEGER}
+})
+
+const Tag = sequelize.define("tag", {
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    text: {type: DataTypes.STRING, unique: true},
 })
 
 

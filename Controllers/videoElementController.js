@@ -16,6 +16,17 @@ class VideoElementController {
         return res.status(200).json(videoElements)
     }
 
+    async update(req, res) {
+        const {id} = req.params
+        const {time} = req.body
+
+        const videoElement = await VideoElement.upsert({
+            id: id,
+            time: time
+        })
+
+        return res.status(200).json(videoElement)
+    }
 }
 
 module.exports = new VideoElementController()

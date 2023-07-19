@@ -2,7 +2,8 @@ const {Blog, ArticleElement, VideoElement, PodcastElement} = require("../models/
 const ApiError = require("../Error/ApiError");
 const uuid = require("uuid");
 const path = require("path");
-const {Sequelize} = require("sequelize");
+const {Sequelize, Op} = require("sequelize");
+const {te} = require("date-fns/locale");
 
 class BlogController {
 
@@ -23,181 +24,133 @@ class BlogController {
     }
 
     async getAll(req, res, next) {
-        const {branchId, blogTypeId} = req.query
+        let {branchId, blogTypeId, text, page} = req.query
+
+        text = text || ""
+        page = page || 1
+        const limit = 8
+        const offset = limit * page - limit
 
         if (!branchId && !blogTypeId || branchId === "0" && blogTypeId === "0") {
-            const blogsArticle = await Blog.findAll(
-                {
-                    where: {
-                        blogTypeId: 1
+            const blogs = await Blog.findAndCountAll({
+                where: {
+                    "title": {
+                        [Op.like]: '%' + text + '%'
+                    }
+                },
+                limit, offset,
+                include: [
+                    {
+                        model: VideoElement,
+                        as: "videoElement",
+                        attributes: ["url", "time"]
                     },
-                    include: {
+                    {
+                        model: PodcastElement,
+                        as: "podcastElement",
+                        attributes: ["audio", "time"]
+                    },
+                    {
                         model: ArticleElement,
                         as: "articleElement",
                         attributes: ["article", "text"]
                     }
-                }
-            )
-            const blogsVideo = await Blog.findAll(
-                {
-                    where: {
-                        blogTypeId: 2
-                    },
-                    include: {
-                        model: VideoElement,
-                        as: "videoElement",
-                        attributes: ["url"]
-                    }
-                }
-            )
-            const blogsPodcast = await Blog.findAll(
-                {
-                    where: {
-                        blogTypeId: 3
-                    },
-                    include: {
-                        model: PodcastElement,
-                        as: "podcastElement",
-                        attributes: ["audio"]
-                    }
-                }
-            )
-            return res.status(200).json({
-                "count": [...blogsArticle, ...blogsPodcast, ...blogsVideo].length,
-                "rows": [...blogsArticle, ...blogsPodcast, ...blogsVideo]
+                ]
             })
+
+            return res.status(200).json(blogs)
         }
 
         if (!branchId || branchId === "0") {
-            switch (blogTypeId) {
-                case "1":
-                    const blogsArticle = await Blog.findAll(
-                        {
-                            where: {
-                                blogTypeId: 1
-                            },
-                            include: {
-                                model: ArticleElement,
-                                as: "articleElement",
-                                attributes: ["article", "text"]
-                            }
-                        }
-                    )
-                    return res.status(200).json(blogsArticle)
-                case "2":
-                    const blogsVideo = await Blog.findAll(
-                        {
-                            where: {
-                                blogTypeId: 2
-                            },
-                            include: {
-                                model: VideoElement,
-                                as: "videoElement",
-                                attributes: ["url"]
-                            }
-                        }
-                    )
-                    return res.status(200).json(blogsVideo)
-                case "3":
-                    const blogsPodcast = await Blog.findAll(
-                        {
-                            where: {
-                                blogTypeId: 3
-                            },
-                            include: {
-                                model: PodcastElement,
-                                as: "podcastElement",
-                                attributes: ["audio"]
-                            }
-                        }
-                    )
-                    return res.status(200).json(blogsPodcast)
-            }
+            const blogs = await Blog.findAndCountAll({
+                where: {
+                    blogTypeId,
+                    "title": {
+                        [Op.like]: '%' + text + '%'
+                    }
+                },
+                limit, offset,
+                include: [
+                    {
+                        model: VideoElement,
+                        as: "videoElement",
+                        attributes: ["url", "time"]
+                    },
+                    {
+                        model: PodcastElement,
+                        as: "podcastElement",
+                        attributes: ["audio", "time"]
+                    },
+                    {
+                        model: ArticleElement,
+                        as: "articleElement",
+                        attributes: ["article", "text"]
+                    }
+                ]
+            })
+
+            return res.status(200).json(blogs)
         }
 
         if (!blogTypeId || blogTypeId === "0") {
-            const blogsArticle = await Blog.findAll(
-                {
-                    where: {
-                        blogTypeId: 1,
-                        branchId: branchId
+            const blogs = await Blog.findAndCountAll({
+                where: {
+                    branchId,
+                    "title": {
+                        [Op.like]: '%' + text + '%'
+                    }
+                },
+                limit, offset,
+                include: [
+                    {
+                        model: VideoElement,
+                        as: "videoElement",
+                        attributes: ["url", "time"]
                     },
-                    include: {
+                    {
+                        model: PodcastElement,
+                        as: "podcastElement",
+                        attributes: ["audio", "time"]
+                    },
+                    {
                         model: ArticleElement,
-                        as: "element",
+                        as: "articleElement",
                         attributes: ["article", "text"]
                     }
-                }
-            )
-            const blogsVideo = await Blog.findAll(
-                {
-                    where: {
-                        blogTypeId: 2,
-                        branchId: branchId
-                    }
-                }
-            )
-            const blogsPodcast = await Blog.findAll(
-                {
-                    where: {
-                        blogTypeId: 3,
-                        branchId: branchId
-                    }
-                }
-            )
-            return res.status(200).json({
-                "count": [...blogsArticle, ...blogsPodcast, ...blogsVideo].length,
-                "rows": [...blogsArticle, ...blogsPodcast, ...blogsVideo]
+                ]
             })
+            return res.status(200).json(blogs)
         }
 
-        switch (blogTypeId) {
-            case "1":
-                const blogsArticle = await Blog.findAll(
-                    {
-                        where: {
-                            blogTypeId: 1,
-                            branchId: branchId
-                        },
-                        include: {
-                            model: ArticleElement,
-                            as: "articleElement",
-                            attributes: ["article", "text"]
-                        }
-                    }
-                )
-                return res.status(200).json(blogsArticle)
-            case "2":
-                const blogsVideo = await Blog.findAll(
-                    {
-                        where: {
-                            blogTypeId: 2,
-                            branchId: branchId
-                        },
-                        include: {
-                            model: VideoElement,
-                            as: "videoElement",
-                            attributes: ["url"]
-                        }
-                    }
-                )
-                return res.status(200).json(blogsVideo)
-            case "3":
-                const blogsPodcast = await Blog.findAll(
-                    {
-                        where: {
-                            blogTypeId: 3,
-                            branchId: branchId
-                        },
-                        include: {
-                            model: PodcastElement,
-                            as: "podcastElement",
-                            attributes: ["audio"]
-                        }
-                    }
-                )
-                return res.status(200).json(blogsPodcast)
-        }
+        const blogs = await Blog.findAndCountAll({
+            where: {
+                branchId,
+                blogTypeId,
+                "title": {
+                    [Op.like]: '%' + text + '%'
+                }
+            },
+            limit, offset,
+            include: [
+                {
+                    model: VideoElement,
+                    as: "videoElement",
+                    attributes: ["url", "time"]
+                },
+                {
+                    model: PodcastElement,
+                    as: "podcastElement",
+                    attributes: ["audio", "time"]
+                },
+                {
+                    model: ArticleElement,
+                    as: "articleElement",
+                    attributes: ["article", "text"]
+                }
+            ]
+        })
+
+        return res.status(200).json(blogs)
     }
 
 
@@ -205,9 +158,7 @@ class BlogController {
 
         const {id} = req.params
 
-        const blogs = await Blog.findOne({
-            where: {id}
-        })
+        const blogs = await Blog.findByPk(id)
 
         return res.status(200).json(blogs)
 
@@ -221,7 +172,6 @@ class BlogController {
 
         return res.status(200).json(blog)
     }
-
 
     async update(req, res) {
         const {id} = req.params
