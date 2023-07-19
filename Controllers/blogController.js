@@ -1,4 +1,4 @@
-const {Blog, ArticleElement, VideoElement, PodcastElement} = require("../models/models");
+const {Blog, ArticleElement, VideoElement, PodcastElement, Tag, Branch, BlogType} = require("../models/models");
 const ApiError = require("../Error/ApiError");
 const uuid = require("uuid");
 const path = require("path");
@@ -31,29 +31,26 @@ class BlogController {
         const limit = 8
         const offset = limit * page - limit
 
-        if (!branchId && !blogTypeId || branchId === "0" && blogTypeId === "0") {
+        if (!branchId || branchId === "0" && !blogTypeId || blogTypeId === "0") {
+            console.log("1")
             const blogs = await Blog.findAndCountAll({
+                limit, offset,
                 where: {
                     "title": {
                         [Op.like]: '%' + text + '%'
                     }
                 },
-                limit, offset,
+                distinct: true,
                 include: [
                     {
-                        model: VideoElement,
-                        as: "videoElement",
-                        attributes: ["url", "time"]
+                        model: BlogType,
+                        as: "blogType",
+                        attributes: ["name"]
                     },
                     {
-                        model: PodcastElement,
-                        as: "podcastElement",
-                        attributes: ["audio", "time"]
-                    },
-                    {
-                        model: ArticleElement,
-                        as: "articleElement",
-                        attributes: ["article", "text"]
+                        model: Branch,
+                        as: "branch",
+                        attributes: ["name"],
                     }
                 ]
             })
@@ -62,6 +59,7 @@ class BlogController {
         }
 
         if (!branchId || branchId === "0") {
+            console.log("2")
             const blogs = await Blog.findAndCountAll({
                 where: {
                     blogTypeId,
@@ -93,6 +91,7 @@ class BlogController {
         }
 
         if (!blogTypeId || blogTypeId === "0") {
+            console.log("3")
             const blogs = await Blog.findAndCountAll({
                 where: {
                     branchId,

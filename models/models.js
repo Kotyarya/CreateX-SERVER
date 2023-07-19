@@ -108,9 +108,12 @@ const PodcastElement = sequelize.define("podcastElement", {
 
 const Tag = sequelize.define("tag", {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-    text: {type: DataTypes.STRING, unique: true},
+    text: {type: DataTypes.TEXT},
 })
 
+
+Branch.hasMany(Tag)
+Tag.belongsTo(Branch)
 
 Curator.hasMany(Blog)
 Blog.belongsTo(Curator)
@@ -177,5 +180,6 @@ module.exports = {
     ArticleElementList,
     ArticleElement,
     VideoElement,
-    PodcastElement
+    PodcastElement,
+    Tag
 }

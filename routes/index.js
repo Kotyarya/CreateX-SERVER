@@ -15,7 +15,7 @@ const blogTypeRouter = require('./blogTypeRouter')
 const articleElementRouter = require('./articleElementRouter')
 const videoElementRouter = require('./videoElementRouter')
 const podcastElementRouter = require("./podcastElementRouter")
-
+const tagRouter = require('./tagRouter')
 
 router.use("/course", courseRouter)
 router.use("/curator", curatorRouter)
@@ -32,6 +32,7 @@ router.use("/blogType", blogTypeRouter)
 router.use("/articleElement", articleElementRouter)
 router.use("/videoElement", videoElementRouter)
 router.use("/podcastElement", podcastElementRouter)
+router.use("/tag", tagRouter)
 
 
 module.exports = router
