@@ -31,7 +31,6 @@ class BlogController {
         const offset = limit * page - limit
 
         if (!branchId || branchId === "0" && !blogTypeId || blogTypeId === "0") {
-            console.log("1")
             const blogs = await Blog.findAndCountAll({
                 limit, offset,
                 where: {
@@ -50,7 +49,20 @@ class BlogController {
                         model: Branch,
                         as: "branch",
                         attributes: ["name"],
-                    }
+                    },
+                    {
+                        model: ArticleElement,
+                        as: "articleElement",
+                    },
+                    {
+                        model: VideoElement,
+                        as: "videoElement",
+                    },
+                    {
+                        model: PodcastElement,
+                        as: "podcastElement",
+                    },
+
                 ]
             })
 
@@ -58,7 +70,6 @@ class BlogController {
         }
 
         if (!branchId || branchId === "0") {
-            console.log("2")
             const blogs = await Blog.findAndCountAll({
                 where: {
                     blogTypeId,
@@ -68,6 +79,16 @@ class BlogController {
                 },
                 limit, offset,
                 include: [
+                    {
+                        model: BlogType,
+                        as: "blogType",
+                        attributes: ["name"]
+                    },
+                    {
+                        model: Branch,
+                        as: "branch",
+                        attributes: ["name"],
+                    },
                     {
                         model: VideoElement,
                         as: "videoElement",
@@ -90,7 +111,6 @@ class BlogController {
         }
 
         if (!blogTypeId || blogTypeId === "0") {
-            console.log("3")
             const blogs = await Blog.findAndCountAll({
                 where: {
                     branchId,
@@ -100,6 +120,16 @@ class BlogController {
                 },
                 limit, offset,
                 include: [
+                    {
+                        model: BlogType,
+                        as: "blogType",
+                        attributes: ["name"]
+                    },
+                    {
+                        model: Branch,
+                        as: "branch",
+                        attributes: ["name"],
+                    },
                     {
                         model: VideoElement,
                         as: "videoElement",
@@ -130,6 +160,16 @@ class BlogController {
             },
             limit, offset,
             include: [
+                {
+                    model: BlogType,
+                    as: "blogType",
+                    attributes: ["name"]
+                },
+                {
+                    model: Branch,
+                    as: "branch",
+                    attributes: ["name"],
+                },
                 {
                     model: VideoElement,
                     as: "videoElement",
