@@ -6,7 +6,6 @@ const {Sequelize, Op} = require("sequelize");
 const {te} = require("date-fns/locale");
 
 class BlogController {
-
     async create(req, res, next) {
         try {
 
@@ -151,7 +150,6 @@ class BlogController {
 
         return res.status(200).json(blogs)
     }
-
 
     async getOne(req, res, next) {
 
