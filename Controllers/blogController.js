@@ -30,7 +30,8 @@ class BlogController {
         const limit = 8
         const offset = limit * page - limit
 
-        if (!branchId || branchId === "0" && !blogTypeId || blogTypeId === "0") {
+        if ((!branchId || branchId === "0") && (!blogTypeId || blogTypeId === "0")) {
+            console.log(blogTypeId)
             const blogs = await Blog.findAndCountAll({
                 limit, offset,
                 where: {
