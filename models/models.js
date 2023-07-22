@@ -127,13 +127,13 @@ ArticleElementList.belongsTo(ArticleElement)
 BlogType.hasMany(Blog)
 Blog.belongsTo(BlogType)
 
-Blog.hasMany(ArticleElement, {as: "articleElement", foreignKey: "blogId"})
+Blog.hasOne(ArticleElement, {as: "articleElement", foreignKey: "blogId"})
 ArticleElement.belongsTo(Blog)
 
-Blog.hasMany(VideoElement, {as: "videoElement", foreignKey: "blogId"})
+Blog.hasOne(VideoElement, {as: "videoElement", foreignKey: "blogId"})
 VideoElement.belongsTo(Blog)
 
-Blog.hasMany(PodcastElement, {as: "podcastElement", foreignKey: "blogId"})
+Blog.hasOne(PodcastElement, {as: "podcastElement", foreignKey: "blogId"})
 PodcastElement.belongsTo(Blog)
 
 Branch.hasMany(Course)
