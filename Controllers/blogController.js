@@ -1,4 +1,13 @@
-const {Blog, ArticleElement, VideoElement, PodcastElement, Tag, Branch, BlogType} = require("../models/models");
+const {
+    Blog,
+    ArticleElement,
+    VideoElement,
+    PodcastElement,
+    Tag,
+    Branch,
+    BlogType,
+    ArticleElementList
+} = require("../models/models");
 const ApiError = require("../Error/ApiError");
 const uuid = require("uuid");
 const path = require("path");
@@ -228,7 +237,14 @@ class BlogController {
                 {
                     model: ArticleElement,
                     as: "articleElement",
-                    attributes: ["article", "text"]
+                    attributes: ["article", "text"],
+                    include: [
+                        {
+                            model: ArticleElementList,
+                            as: "articleElementList",
+                            attributes: ["text"]
+                        }
+                    ]
                 }
             ]
         })

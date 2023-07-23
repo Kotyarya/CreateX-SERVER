@@ -121,7 +121,7 @@ Blog.belongsTo(Curator)
 Branch.hasMany(Blog)
 Blog.belongsTo(Branch)
 
-ArticleElement.hasMany(ArticleElementList)
+ArticleElement.hasMany(ArticleElementList, {as: "articleElementList", foreignKey: "articleElementId"})
 ArticleElementList.belongsTo(ArticleElement)
 
 BlogType.hasMany(Blog)
