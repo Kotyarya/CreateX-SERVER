@@ -206,7 +206,14 @@ class BlogController {
                 {
                     model: Branch,
                     as: "branch",
-                    attributes: ["name"]
+                    attributes: ["name"],
+                    include: [
+                        {
+                            model: Tag,
+                            as: "tags",
+                            attributes: ["text"]
+                        }
+                    ]
                 },
                 {
                     model: VideoElement,

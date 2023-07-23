@@ -112,7 +112,7 @@ const Tag = sequelize.define("tag", {
 })
 
 
-Branch.hasMany(Tag)
+Branch.hasMany(Tag, {as: "tags", foreignKey: "branchId"})
 Tag.belongsTo(Branch)
 
 Curator.hasMany(Blog)
