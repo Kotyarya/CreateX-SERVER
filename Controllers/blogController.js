@@ -196,7 +196,35 @@ class BlogController {
 
         const {id} = req.params
 
-        const blogs = await Blog.findByPk(id)
+        const blogs = await Blog.findByPk(id, {
+            include: [
+                {
+                    model: BlogType,
+                    as: "blogType",
+                    attributes: ["name"]
+                },
+                {
+                    model: Branch,
+                    as: "branch",
+                    attributes: ["name"]
+                },
+                {
+                    model: VideoElement,
+                    as: "videoElement",
+                    attributes: ["url", "time"]
+                },
+                {
+                    model: PodcastElement,
+                    as: "podcastElement",
+                    attributes: ["audio", "time"]
+                },
+                {
+                    model: ArticleElement,
+                    as: "articleElement",
+                    attributes: ["article", "text"]
+                }
+            ]
+        })
 
         return res.status(200).json(blogs)
 
