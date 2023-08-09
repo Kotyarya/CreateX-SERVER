@@ -22,8 +22,6 @@ class CuratorController {
         } catch (e) {
             return next(ApiError.badRequest(e.message))
         }
-
-
     }
 
     async getAll(req, res, next) {

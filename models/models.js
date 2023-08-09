@@ -12,6 +12,7 @@ const Course = sequelize.define("course", {
 const Branch = sequelize.define("branch", {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     name: {type: DataTypes.STRING, unique: true},
+    img: {type: DataTypes.STRING}
 })
 
 const WillLearn = sequelize.define("willLearn", {

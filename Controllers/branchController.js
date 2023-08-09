@@ -1,6 +1,8 @@
 const ApiError = require("../Error/ApiError");
-const {Branch, Course} = require("../models/models");
-const {Sequelize} = require("sequelize");
+const {Branch, Course, Curator} = require("../models/models");
+const {Sequelize, where} = require("sequelize");
+const uuid = require("uuid");
+const path = require("path");
 
 class BranchController {
     async create(req, res, next) {
@@ -15,8 +17,6 @@ class BranchController {
     }
 
     async getAll(req, res) {
-
-
         const branches = await Branch.findAll({
             attributes: {
                 include: [[Sequelize.fn("COUNT", Sequelize.col("courses.branchId")), "courseCount"]]
@@ -31,7 +31,6 @@ class BranchController {
         return res.status(200).json(branches)
     }
 
-
     async delete(req, res, next) {
         const {id} = req.query
 
@@ -40,6 +39,17 @@ class BranchController {
         }
 
         const branch = await Branch.destroy({where: {id}})
+
+        return res.status(200).json(branch)
+    }
+
+    async update(req, res) {
+        const {id} = req.params
+        const {img} = req.files
+        let fileName = uuid.v4() + ".png"
+        await img.mv(path.resolve(__dirname, "..", "static", fileName))
+
+        const branch = await Branch.update({"img": fileName}, {where: {id}})
 
         return res.status(200).json(branch)
     }
