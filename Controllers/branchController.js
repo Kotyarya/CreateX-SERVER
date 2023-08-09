@@ -45,12 +45,8 @@ class BranchController {
 
     async update(req, res) {
         const {id} = req.params
-        const {img} = req.files
-        let fileName = uuid.v4() + ".png"
-        await img.mv(path.resolve(__dirname, "..", "static", fileName))
-
-        const branch = await Branch.update({"img": fileName}, {where: {id}})
-
+        const {text} = req.body
+        const branch = await Branch.update({"text": text}, {where: {id}})
         return res.status(200).json(branch)
     }
 }
