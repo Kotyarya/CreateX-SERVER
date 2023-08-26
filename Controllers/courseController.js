@@ -1,6 +1,6 @@
 const ApiError = require("../Error/ApiError");
 const {Course, Branch, Curator, WillLearn, Lesson, ForWhomCourse} = require("../models/models");
-const {Sequelize} = require("sequelize");
+const {Sequelize, Op} = require("sequelize");
 
 class CourseController {
     async create(req, res, next) {
@@ -54,10 +54,11 @@ class CourseController {
     }
 
     async getAllByBranchId(req, res) {
-        let {branchId, page, limit} = req.query
+        let {branchId, page, limit, text} = req.query
         limit = limit || 9
         page = page || 1
         const offset = page * 9 - 9
+        text = text || ""
 
         if (!branchId || branchId === "0") {
             let courses = await Course.findAll(
@@ -67,6 +68,11 @@ class CourseController {
                         model: Curator,
                         as: "curator",
                     }],
+                    where: {
+                        "title": {
+                            [Op.like]: '%' + text + '%'
+                        }
+                    },
                 }
             )
             return res.status(200).json(courses)
@@ -79,13 +85,17 @@ class CourseController {
                     model: Curator,
                     as: "curator",
                 }],
-                where: {branchId}
+                where: {
+                    branchId,
+                    "title": {
+                        [Op.like]: '%' + text + '%'
+                    }
+                }
             }
         ))
 
         return res.status(200).json(courses)
     }
-
 
     async delete(req, res, next) {
         const {id} = req.query
