@@ -20,8 +20,9 @@ class EventController {
     async getAll(req, res) {
 
         let {limit, page, eventTypeId, sortBy, text} = req.query
-        text = text || ""
 
+        text = text || ""
+        sortBy = sortBy || "ASC"
         limit = limit || 9
         page = page || 1
 
