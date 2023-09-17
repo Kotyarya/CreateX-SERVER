@@ -27,7 +27,6 @@ class EventController {
 
         const offset = limit * page - limit
 
-
         if (!eventTypeId || eventTypeId === "0") {
             const events = await Event.findAndCountAll(
                 {
@@ -36,7 +35,7 @@ class EventController {
                             [Op.like]: '%' + text + '%'
                         }
                     },
-                    limit, offset, order: [["date", "ASC"]],
+                    limit, offset, order: [["date", "DESC"]],
                     include: [
                         {model: EventType, as: "eventType", attributes: ["name"]},
                         {model: Theme, as: "theme"}
@@ -48,10 +47,9 @@ class EventController {
             return res.status(200).json(events)
         }
 
-
         const events = await Event.findAndCountAll(
             {
-                limit, offset, order: [["id", "ASC"]],
+                limit, offset, order: [["id", "DESC"]],
                 where: {
                     eventTypeId,
                     "title": {
@@ -65,6 +63,7 @@ class EventController {
                 distinct: true
             }
         )
+
         return res.status(200).json(events)
     }
 
