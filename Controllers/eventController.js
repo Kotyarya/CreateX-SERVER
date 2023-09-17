@@ -64,6 +64,7 @@ class EventController {
             }
         )
 
+
         return res.status(200).json(events)
     }
 
