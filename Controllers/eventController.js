@@ -35,7 +35,7 @@ class EventController {
                             [Op.like]: '%' + text + '%'
                         }
                     },
-                    limit, offset, order: [["date", "DESC"]],
+                    limit, offset, order: [["date", sortBy]],
                     include: [
                         {model: EventType, as: "eventType", attributes: ["name"]},
                         {model: Theme, as: "theme"}
@@ -49,7 +49,7 @@ class EventController {
 
         const events = await Event.findAndCountAll(
             {
-                limit, offset, order: [["id", "DESC"]],
+                limit, offset, order: [["date", sortBy]],
                 where: {
                     eventTypeId,
                     "title": {
