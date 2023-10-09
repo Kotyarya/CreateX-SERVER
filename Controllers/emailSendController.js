@@ -39,6 +39,7 @@ class EmailSendController {
             subject: "Send Message"
         })
 
+        return res.status(200).json("Email send")
     }
 
     register(req, res) {
@@ -57,6 +58,8 @@ class EmailSendController {
             `,
             subject: "Register"
         })
+
+        return res.status(200).json("Email send")
     }
 }
 
