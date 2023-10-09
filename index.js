@@ -8,6 +8,7 @@ const errorHandler = require("./Middleware/ErrorHandlingMiddleware")
 const fileUpload = require('express-fileupload')
 const path = require('path')
 
+
 const PORT = process.env.PORT || 8000
 
 const app = express()
@@ -18,6 +19,7 @@ app.use(fileUpload())
 app.use("/api", router)
 
 app.use(errorHandler)
+
 
 const start = async () => {
     try {

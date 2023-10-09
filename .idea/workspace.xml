@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c1335df-28d8-40f6-947e-36c41f037d3d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Controllers/emailSendController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/emailSendRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/eventController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/eventController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +47,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.15.0&quot;,
     &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.15.0&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kotyarya/Documents/Programowanie/GitHub/CreateX-SERVER&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kotyarya/Library/Mobile Documents/com~apple~CloudDocs/Documents/Документы — MacBook Air — Maksim/Programowanie/GitHub/CreateX-SERVER&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -57,7 +63,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.start">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -68,8 +74,19 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.start" />
         <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
@@ -110,15 +127,9 @@
       <workItem from="1693033524960" duration="3111000" />
       <workItem from="1693727588489" duration="1473000" />
       <workItem from="1694071723604" duration="2820000" />
-      <workItem from="1694937073010" duration="5831000" />
-    </task>
-    <task id="LOCAL-00008" summary="commit">
-      <option name="closed" value="true" />
-      <created>1688510302941</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1688510302941</updated>
+      <workItem from="1694937073010" duration="6148000" />
+      <workItem from="1696521887937" duration="56000" />
+      <workItem from="1696846062535" duration="5612000" />
     </task>
     <task id="LOCAL-00009" summary="commit">
       <option name="closed" value="true" />
@@ -504,7 +515,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694944389014</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="commit">
+      <option name="closed" value="true" />
+      <created>1694950241074</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1694950241074</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
