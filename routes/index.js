@@ -18,6 +18,7 @@ const podcastElementRouter = require("./podcastElementRouter")
 const tagRouter = require('./tagRouter')
 const articleElementListRouter = require('./articleElementListRouter')
 const emailSendRouter = require("./emailSendRouter")
+const userRouter = require("./userRouter")
 
 router.use("/course", courseRouter)
 router.use("/curator", curatorRouter)
@@ -37,6 +38,7 @@ router.use("/podcastElement", podcastElementRouter)
 router.use("/tag", tagRouter)
 router.use("/articleElementList", articleElementListRouter)
 router.use("/email", emailSendRouter)
+router.use("/user", userRouter)
 
 
 module.exports = router

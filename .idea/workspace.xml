@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c1335df-28d8-40f6-947e-36c41f037d3d" name="Changes" comment="commit">
-      <change beforePath="$PROJECT_DIR$/Controllers/emailSendController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/emailSendController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/userController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Middleware/authMiddleware.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/userRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/models.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/models.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +24,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="8d1222d1-cef4-47f1-aa46-c0078c8587fb" />
+        <option name="url" value="https://github.com/Kotyarya/CreateX-SERVER.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -122,15 +142,8 @@
       <workItem from="1694071723604" duration="2820000" />
       <workItem from="1694937073010" duration="6148000" />
       <workItem from="1696521887937" duration="56000" />
-      <workItem from="1696846062535" duration="5846000" />
-    </task>
-    <task id="LOCAL-00010" summary="commit">
-      <option name="closed" value="true" />
-      <created>1688520030909</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1688520030909</updated>
+      <workItem from="1696846062535" duration="5962000" />
+      <workItem from="1698242470134" duration="6891000" />
     </task>
     <task id="LOCAL-00011" summary="commit">
       <option name="closed" value="true" />
@@ -516,7 +529,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696856679428</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="commit">
+      <option name="closed" value="true" />
+      <created>1696856890404</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1696856890404</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
