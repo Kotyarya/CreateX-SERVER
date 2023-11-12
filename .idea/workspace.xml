@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c1335df-28d8-40f6-947e-36c41f037d3d" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/Controllers/userController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Middleware/authMiddleware.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/userRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/userController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/models.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/models.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,11 +20,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -76,12 +71,22 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
         <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -99,6 +104,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.dev" />
         <item itemvalue="npm.start" />
         <item itemvalue="npm.build" />
       </list>
@@ -143,15 +149,10 @@
       <workItem from="1694937073010" duration="6148000" />
       <workItem from="1696521887937" duration="56000" />
       <workItem from="1696846062535" duration="5962000" />
-      <workItem from="1698242470134" duration="6891000" />
-    </task>
-    <task id="LOCAL-00011" summary="commit">
-      <option name="closed" value="true" />
-      <created>1688555202613</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1688555202613</updated>
+      <workItem from="1698242470134" duration="8568000" />
+      <workItem from="1698860134810" duration="718000" />
+      <workItem from="1699721739752" duration="2000" />
+      <workItem from="1699722534673" duration="3021000" />
     </task>
     <task id="LOCAL-00012" summary="commit">
       <option name="closed" value="true" />
@@ -537,7 +538,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696856890404</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="commit">
+      <option name="closed" value="true" />
+      <created>1698852404639</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1698852404640</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

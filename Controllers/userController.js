@@ -19,6 +19,8 @@ class UserController {
         const token = jwt.sign({
             id: user.id,
             email: user.email,
+            name: user.name,
+            surname: user.surname,
             role: user.role
         }, process.env.RANDOM_KEY, {expiresIn: "24h"})
 
@@ -27,7 +29,7 @@ class UserController {
     }
 
     async register(req, res, next) {
-        let {password, email} = req.body
+        let {password, email, name, surname} = req.body
 
         let role = "USER"
 
@@ -42,8 +44,14 @@ class UserController {
         }
 
         const hashPass = await bcrypt.hash(password, 4)
-        const user = await User.create({email, role, password: hashPass})
-        const token = jwt.sign({id: user.id, email: user.email, role}, process.env.RANDOM_KEY, {expiresIn: "24h"})
+        const user = await User.create({email, role, password: hashPass, name, surname})
+        const token = jwt.sign({
+            id: user.id,
+            email: user.email,
+            role,
+            name: user.name,
+            surname: user.surname
+        }, process.env.RANDOM_KEY, {expiresIn: "24h"})
 
         return res.json({token})
     }
@@ -52,6 +60,8 @@ class UserController {
         const token = jwt.sign({
             id: req.user.id,
             email: req.user.email,
+            name: req.user.name,
+            surname: req.user.surname,
             role: req.user.role
         }, process.env.RANDOM_KEY, {expiresIn: "24h"})
 
