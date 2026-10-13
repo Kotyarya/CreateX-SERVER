@@ -3,9 +3,14 @@ const jwt = require('jsonwebtoken')
 const {User} = require('../models/models')
 const ApiError = require('../Error/ApiError')
 
+const EMAIL_REGEXP = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
 class UserController {
     async login(req, res, next) {
         const {password, email} = req.body
+        if (!EMAIL_REGEXP.test(email || '') || typeof password !== 'string' || password.length < 6) {
+            return next(ApiError.badRequest("Invalid email or password"))
+        }
         const user = await User.findOne({where: {email}})
 
         if (!user) {
@@ -33,7 +38,7 @@ class UserController {
 
         let role = "USER"
 
-        if (!email || !password) {
+        if (!EMAIL_REGEXP.test(email || '') || typeof password !== 'string' || password.length < 6 || !name || !surname) {
             return next(ApiError.badRequest("Invalid email or password"))
         }
 
